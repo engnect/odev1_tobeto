@@ -63,6 +63,49 @@ void main() {
 
   //Mixin
   authUser.GetAuthUserCount();
+
+  // late variables
+  late String randomWord;
+  String word;
+
+  var ras;
+  late var ras2;
+
+  randomWord = 'deneme';
+  word = '123';
+  print("late variable value: $ras");
+  //print(ras2);
+
+  print(randomWord);
+  print(word);
+
+  // Operators
+  var result = 5 / 2;
+  print('Result1: $result');
+  var doubleResult = 5 ~/ 2;
+  print('Result2: $doubleResult');
+
+  // Type-cast operator
+  String kullaniciAdi = (authUser as AuthorizedUser).userName;
+  print(kullaniciAdi);
+
+  // Collections
+  var list = [1, 5, 10];
+
+  var names = <String>{};
+  var names2 = {'engin', 'celal', 'taşkın'};
+  Set<String> names3 = {};
+
+  names.addAll(names2);
+  names.add('isim');
+
+  var map = {'ad': 'engin', 'soyad': 'taşkın', 'yaş': 26};
+  Map<String, dynamic> arguments = {'argA': 'hello', 'argB': 42};
+
+  // Collection-for
+  var listOfInts = [1, 2, 3];
+  var listOfStrings = ['#0', for (var i in listOfInts) '#$i'];
+  assert(listOfStrings[3] == '#3');
 }
 
 // function for calculating the power of the selected/favorite number
