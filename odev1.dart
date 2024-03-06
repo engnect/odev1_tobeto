@@ -39,6 +39,10 @@ void main() {
   // Shorthand/Arrow function on execution
   printFullName(firstName, lastName);
 
+  // Function
+  test1(10, 5);
+  test2(15, 12, sayi3: 12);
+
   // Class
   DateTime signDate = DateTime(2024, 03, 04);
   User firstUser = new User(firstName, age);
@@ -106,6 +110,14 @@ void main() {
   var listOfInts = [1, 2, 3];
   var listOfStrings = ['#0', for (var i in listOfInts) '#$i'];
   assert(listOfStrings[3] == '#3');
+
+  // Constructor
+  var customerManager = CustomerManager();
+  var customer1 = Customer.withInfo('Engin', 'Taşkın');
+  //var customer2 = Customer();
+
+  customerManager.addCustomer(customer1);
+  //customerManager.addCustomer(customer2);
 }
 
 // function for calculating the power of the selected/favorite number
@@ -142,5 +154,33 @@ enum Matter {
     } else {
       print("no");
     }
+  }
+}
+
+void test1(int sayi1, [int? sayi2, int? sayi3]) {
+  print(sayi1);
+  print(sayi2);
+  print(sayi3);
+}
+
+void test2(int sayi1, int? sayi2, {int? sayi3}) {
+  print(sayi1);
+  print(sayi2);
+  print(sayi3);
+}
+
+class CustomerManager {
+  void addCustomer(Customer customer) {
+    print("Eklendi: " + customer.firstName);
+  }
+}
+
+class Customer {
+  late String firstName;
+  late String lastName;
+
+  Customer.withInfo(String firstName, String lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
   }
 }
